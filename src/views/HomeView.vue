@@ -10,7 +10,7 @@
       <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
         <a-menu-item key="1">
           <a-icon type="home" />
-          <span>首页</span>
+          <span>首页111</span>
         </a-menu-item>
         <a-sub-menu key="sub1">
           <span slot="title"><a-icon type="mail" /><span>院系信息</span></span>
