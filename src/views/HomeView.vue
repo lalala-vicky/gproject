@@ -7,37 +7,43 @@
         <!-- <img src="../assets/logo-big.jpg" /> -->
         <!-- <span style="color: white; font-size: 15px">新生报到管理系统</span> -->
       </div>
-      <a-menu theme="dark" mode="inline" :default-selected-keys="['1']">
-        <a-menu-item key="1">
+      <a-menu
+        theme="dark"
+        mode="inline"
+        :default-selected-keys="['1']"
+        @click="handlechange"
+        :key="id"
+      >
+        <a-menu-item key="home">
           <a-icon type="home" />
-          <span>首页111</span>
+          <span>首页</span>
         </a-menu-item>
-        <a-sub-menu key="sub1">
+        <a-sub-menu key="msg">
           <span slot="title"><a-icon type="mail" /><span>院系信息</span></span>
-          <a-menu-item key="5">电信工程学院</a-menu-item>
-          <a-menu-item key="6"> 会计学院 </a-menu-item>
-          <a-menu-item key="7"> 经贸学院 </a-menu-item>
-          <a-menu-item key="7"> 服装与艺术学院 </a-menu-item>
-          <a-menu-item key="7"> 医药学院 </a-menu-item>
-          <a-menu-item key="8"> 外国语学院 </a-menu-item>
+          <a-menu-item key="engineer">电信工程学院</a-menu-item>
+          <a-menu-item key="account"> 会计学院 </a-menu-item>
+          <a-menu-item key="economy"> 经贸学院 </a-menu-item>
+          <a-menu-item key="art"> 服装与艺术学院 </a-menu-item>
+          <a-menu-item key="medicine"> 医药学院 </a-menu-item>
+          <a-menu-item key="foreign"> 外国语学院 </a-menu-item>
         </a-sub-menu>
-        <a-menu-item key="2">
+        <a-menu-item key="students">
           <a-icon type="team" />
           <span>学生信息管理</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="info">
           <a-icon type="user" />
           <span>个人信息</span>
         </a-menu-item>
-        <a-menu-item key="4">
+        <a-menu-item key="payment">
           <a-icon type="pay-circle" />
           <span>缴费管理</span>
         </a-menu-item>
-        <a-menu-item key="5">
+        <a-menu-item key="book">
           <a-icon type="book" />
           <span>课程查询</span>
         </a-menu-item>
-        <a-menu-item key="6">
+        <a-menu-item key="system">
           <a-icon type="setting" />
           <span>系统管理</span>
         </a-menu-item>
@@ -59,7 +65,7 @@
           minHeight: '280px',
         }"
       >
-        Content
+        <router-view />
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -75,6 +81,58 @@ export default {
     return {
       collapsed: false,
     };
+  },
+  methods: {
+    handleHome() {
+      this.$router.push({ path: this.redirect || "/" });
+    },
+    handlechange(e) {
+      // if (e.key === "engineer") {
+      //   this.$router.push("engineer");
+      // } else if (e.key === "home") {
+      //   this.$router.push({ path: this.redirect || "/" });
+      // }
+      switch (e.key) {
+        case "home":
+          this.$router.push({ path: this.redirect || "/" });
+          break;
+        case "engineer":
+          this.$router.push("engineer");
+          break;
+        case "account":
+          this.$router.push("/msg/account");
+          break;
+        case "economy":
+          this.$router.push("/msg/economy");
+          break;
+        case "art":
+          this.$router.push("/msg/art");
+          break;
+        case "medicine":
+          this.$router.push("/msg/medicine");
+          break;
+        case "foreign":
+          this.$router.push("/msg/foreign");
+          break;
+        case "students":
+          this.$router.push("students");
+          break;
+        case "info":
+          this.$router.push("info");
+          break;
+        case "payment":
+          this.$router.push("payment");
+          break;
+        case "book":
+          this.$router.push("book");
+          break;
+        case "system":
+          this.$router.push("system");
+          break;
+        default:
+          this.$router.push({ path: this.redirect || "/" });
+      }
+    },
   },
   computed: {
     getimageUrlSmall() {
