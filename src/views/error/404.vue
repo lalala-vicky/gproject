@@ -1,5 +1,5 @@
 <template>
-  <div><h1>页面丢失了</h1></div>
+  <div class="body">抱歉。。页面丢失了</div>
 </template>
 <script>
 export default {
@@ -8,4 +8,12 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style>
+.body {
+  font-size: 100px;
+  color: #000;
+  text-align: center;
+  min-height: 100vh;
+  background-image: url("@/assets/404.png");
+}
+</style>

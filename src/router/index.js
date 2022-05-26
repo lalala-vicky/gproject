@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import login from "@/views/login/login.vue";
 import NotFound from "@/views/error/404.vue";
+import register from "../views/login/register.vue";
 
 Vue.use(VueRouter);
 
@@ -15,7 +16,7 @@ VueRouter.prototype.push = function push(location) {
 const routes = [
   {
     path: "/",
-    redirect: "index",
+    redirect: "/login",
     component: HomeView,
     children: [
       {
@@ -26,7 +27,7 @@ const routes = [
       {
         path: "/students",
         name: "students",
-        component: () => import("../views/home/students.vue"),
+        component: () => import("../views/home/studentsInfo/students.vue"),
       },
       {
         path: "/info",
@@ -53,7 +54,7 @@ const routes = [
   {
     path: "/msg",
     component: HomeView,
-    redirect: "/msg/engineer",
+    redirect: "/engineer",
     children: [
       {
         path: "/engineer",
@@ -87,11 +88,6 @@ const routes = [
       },
     ],
   },
-  // {
-  //   path: "/engineer",
-  //   name: "engineer",
-  //   component: () => import("../views/home/studentsMsg/engineer.vue"),
-  // },
   // 登录
   {
     path: "/login",
@@ -102,7 +98,7 @@ const routes = [
   {
     path: "/register",
     name: "register",
-    component: () => import("../views/login/register.vue"),
+    component: register,
   },
   // 404
   {

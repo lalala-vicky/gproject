@@ -1,6 +1,15 @@
 <template>
   <a-layout id="components-layout-demo-custom-trigger">
-    <a-layout-sider v-model="collapsed" :trigger="null" collapsible>
+    <a-layout-sider
+      v-model="collapsed"
+      :trigger="null"
+      collapsible
+      :style="{
+        position: 'fixed',
+        overflow: 'auto',
+        height: '100vh',
+      }"
+    >
       <div class="logo-box">
         <img v-if="collapsed" :src="getimageUrlSmall" class="logo" alt="logo" />
         <img v-else :src="getimageUrlBig" class="logo-big" alt="logo" />
@@ -10,9 +19,8 @@
       <a-menu
         theme="dark"
         mode="inline"
-        :default-selected-keys="['1']"
+        :default-selected-keys="['home']"
         @click="handlechange"
-        :key="id"
       >
         <a-menu-item key="home">
           <a-icon type="home" />
@@ -49,13 +57,30 @@
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
-    <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
-        <a-icon
+    <a-layout :style="{ marginLeft: '200px' }">
+      <a-layout-header style="background: #fff">
+        <!-- <a-icon
           class="trigger"
           :type="collapsed ? 'menu-unfold' : 'menu-fold'"
           @click="() => (collapsed = !collapsed)"
-        />
+        /> -->
+        <div class="infoImg">
+          <a-avatar icon="user" />
+          <a-popover placement="bottom">
+            <div slot="content" class="returnLogin">
+              <router-link to="/index">
+                <el-dropdown-item> 返回主页 </el-dropdown-item>
+              </router-link>
+              <router-link to="/login">
+                <el-dropdown-item> 登出 </el-dropdown-item>
+              </router-link>
+              <router-link to="/login">
+                <el-dropdown-item> 修改密码 </el-dropdown-item>
+              </router-link>
+            </div>
+            <a-icon type="caret-down" />
+          </a-popover>
+        </div>
       </a-layout-header>
       <a-layout-content
         :style="{
@@ -83,21 +108,13 @@ export default {
     };
   },
   methods: {
-    handleHome() {
-      this.$router.push({ path: this.redirect || "/" });
-    },
     handlechange(e) {
-      // if (e.key === "engineer") {
-      //   this.$router.push("engineer");
-      // } else if (e.key === "home") {
-      //   this.$router.push({ path: this.redirect || "/" });
-      // }
       switch (e.key) {
         case "home":
-          this.$router.push({ path: this.redirect || "/" });
+          this.$router.push("/index");
           break;
         case "engineer":
-          this.$router.push("engineer");
+          this.$router.push("/engineer");
           break;
         case "account":
           this.$router.push("/msg/account");
@@ -115,23 +132,29 @@ export default {
           this.$router.push("/msg/foreign");
           break;
         case "students":
-          this.$router.push("students");
+          this.$router.push("/students");
           break;
         case "info":
-          this.$router.push("info");
+          this.$router.push("/info");
           break;
         case "payment":
-          this.$router.push("payment");
+          this.$router.push("/payment");
           break;
         case "book":
-          this.$router.push("book");
+          this.$router.push("/book");
           break;
         case "system":
-          this.$router.push("system");
+          this.$router.push("/system");
           break;
         default:
           this.$router.push({ path: this.redirect || "/" });
       }
+    },
+    returnHome() {
+      this.$router.push("/index");
+    },
+    loginOut() {
+      this.$router.push("/login");
     },
   },
   computed: {
@@ -149,12 +172,12 @@ export default {
 #components-layout-demo-custom-trigger {
   min-height: 100vh;
 }
-#components-layout-demo-custom-trigger .trigger {
-  font-size: 18px;
-  line-height: 64px;
-  padding: 0 24px;
-  cursor: pointer;
-  transition: color 0.3s;
+.infoImg {
+  float: right;
+  margin-right: 20px;
+}
+.a:hover {
+  background-color: #1890ff;
 }
 
 #components-layout-demo-custom-trigger .trigger:hover {
@@ -163,7 +186,10 @@ export default {
 
 #components-layout-demo-custom-trigger .logo-box {
   height: 32px;
-  /* background: rgba(255, 255, 255, 0.2); */
   margin: 18px 0 34px 13px;
+}
+* {
+  padding: 0;
+  margin: 0;
 }
 </style>

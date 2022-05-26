@@ -99,7 +99,7 @@ export default {
           ) {
             // 登陆成功
             this.$message.success("登录成功");
-            this.$router.push({ path: this.redirect || "/" });
+            this.$router.push("/index");
           } else {
             // 用户名或密码错误
             this.$message.warning("用户名或密码错误");
