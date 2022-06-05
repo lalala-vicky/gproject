@@ -77,7 +77,7 @@
     </a-drawer>
     <!-- 搜索框 -->
     <div class="selection">
-      <span>学院：</span>
+      <!-- <span>学院：</span>
       <a-select class="college" @change="changeCollege" placeholder="学院">
         <a-select-option value="电信工程学院"> 电信工程学院 </a-select-option>
         <a-select-option value="会计学院"> 会计学院 </a-select-option>
@@ -88,8 +88,8 @@
         <a-select-option value="医药学院"> 医药学院 </a-select-option>
         <a-select-option value="外国语学院"> 外国语学院 </a-select-option>
       </a-select>
-      <span>性别：</span>
-      <a-select
+      <span>性别：</span> -->
+      <!-- <a-select
         class="sex"
         @change="changeSex"
         placeholder="性别"
@@ -97,7 +97,7 @@
       >
         <a-select-option value="famle"> 女 </a-select-option>
         <a-select-option value="male"> 男 </a-select-option>
-      </a-select>
+      </a-select> -->
       <a-input-search
         placeholder="input search text"
         style="width: 200px"

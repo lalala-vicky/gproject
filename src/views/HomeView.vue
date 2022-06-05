@@ -53,7 +53,7 @@
         </a-menu-item>
         <a-menu-item key="system">
           <a-icon type="setting" />
-          <span>系统管理</span>
+          <span>用户管理</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -74,7 +74,7 @@
               <router-link to="/login">
                 <el-dropdown-item> 登出 </el-dropdown-item>
               </router-link>
-              <router-link to="/login">
+              <router-link to="/register">
                 <el-dropdown-item> 修改密码 </el-dropdown-item>
               </router-link>
             </div>

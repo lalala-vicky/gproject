@@ -2,7 +2,7 @@
   <div class="Loginpage">
     <div class="loginName">欢迎使用新生报到管理系统</div>
     <div class="login">
-      <h1 class="userLogin">用户注册</h1>
+      <h1 class="userLogin">修改密码</h1>
       <div class="fromRegister">
         <a-form-model
           ref="ruleForm"
@@ -32,7 +32,7 @@
             @click="submitForm('ruleForm')"
             style="margin: -10px 0 0 200px"
           >
-            注册
+            确认
           </a-button>
           <div class="forget">
             <a @click="changeLogin"

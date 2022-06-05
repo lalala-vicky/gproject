@@ -69,17 +69,6 @@
       </div>
     </a-drawer>
     <div class="selection">
-      <span>学院：</span>
-      <a-select class="college" @change="changeCollege" placeholder="学院">
-        <a-select-option value="电信工程学院"> 电信工程学院 </a-select-option>
-        <a-select-option value="会计学院"> 会计学院 </a-select-option>
-        <a-select-option value="经贸学院"> 经贸学院 </a-select-option>
-        <a-select-option value="服装与艺术学院">
-          服装与艺术学院
-        </a-select-option>
-        <a-select-option value="医药学院"> 医药学院 </a-select-option>
-        <a-select-option value="外国语学院"> 外国语学院 </a-select-option>
-      </a-select>
       <a-input-search
         placeholder="input search text"
         style="width: 200px"
@@ -259,10 +248,6 @@ export default {
     },
   },
   methods: {
-    // 筛选学院
-    changeCollege(value) {
-      this.college = value;
-    },
     // 输入筛选条件
     searchAll(value) {
       this.infomation = value;
@@ -276,7 +261,7 @@ export default {
     showDrawer() {
       this.visible = true;
     },
-    modifyInfo(record) {
+    modifyInfo() {
       this.visible = true;
     },
     // 删除信息
@@ -323,12 +308,8 @@ export default {
 .selection {
   float: right;
 }
-.college {
-  width: 150px;
-  margin: 0 10px 10px 0;
-}
 .search {
-  margin-left: 10px;
+  margin: 0 10px 10px 0;
   width: 300px;
 }
 .drawerButton {
